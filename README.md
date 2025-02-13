@@ -82,8 +82,9 @@ The project is divided into three folders / apps:
 This project is intended to be deployed to AWS.
 
 Deployment instructions:
-1. Install AWS CLI and authenticate a user with appropriate permissions
-   * Example permissions (illustrative only, this is insecure):
+1. Install [Terraform](https://developer.hashicorp.com/terraform/install?product_intent=terraform) and the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+2. Go through the authentication flow for the AWS CLI. Ensure the user/session has the necessary permissions.
+   * Example permissions needed (illustrative only, this is insecure):
     ![image](https://github.com/user-attachments/assets/f967c218-2a5f-4624-b2b2-fe189f5490a5)
 
 3. Run ```bash up.sh```
