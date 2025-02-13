@@ -107,3 +107,4 @@ Example results:
 * Input validation for APIs
 * Error handling for APIs
 * More reasonable unit test coverage (single "integration" test exists)
+* Refine frontend components, seperate into presentational components and logic ones
