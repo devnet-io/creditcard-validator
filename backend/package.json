@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "author": "Joe Esposito",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "build": "jest && tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc && node dist/devServer.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "serverless-http": "^3.2.0",
+    "typescript": "^5.7.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5"
+  }
+}
