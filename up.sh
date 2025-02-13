@@ -1,24 +1,29 @@
-# Get the filename from a Terraform variable (e.g., timestamp-based)
-FILENAME="dist.zip"
+#options
+BACKEND_ARCHIVE="dist.zip"
 
-# Backend Build
+# == Backend Build ==
+
 cd backend || exit
+[ -f "$BACKEND_ARCHIVE" ] && rm "$BACKEND_ARCHIVE"
 
-[ -f "$FILENAME" ] && rm "$FILENAME"
-
-# Install production dependencies and build
-#npm install --production
+# install production dependencies and build
 npm install
 npm run build
 
-# Create the zip file dynamically
-zip -r $FILENAME dist node_modules package.json
+# create the zip file dynamically
+zip -r $BACKEND_ARCHIVE dist node_modules package.json
 
-# Frontend Build
-# Build the React App with Vite
+
+# == Frontend Build ==
+
 cd ../frontend || exit
+
+# get backend api url for use with static frontend
 export VITE_API_URL=$(terraform -chdir=../infra output -raw api_url)
 echo "VITE_API_URL=$VITE_API_URL" > .env
+
+# install production dependencies and build
+npm install
 npm run build
 aws s3 sync dist/ s3://card-validator-frontend/
 

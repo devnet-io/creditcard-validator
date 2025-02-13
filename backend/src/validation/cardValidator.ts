@@ -7,7 +7,7 @@ import {isNumeric, isValidLuhn} from "./utils";
  *
  * @param {ICardValidationRules[]} validationRules - List of rules to check against.
  * @param {ICreditCard} target - The target credit card object.
- * @returns {ValidationContext[]} - List of validation results for each validator.
+ * @returns {result: ValidationContext[]} - List of validation results for each validator.
  */
 export function processValidation(validationRules: ICardValidationRules[], target: ICreditCard) {
     return validationRules.map((rules) => {
